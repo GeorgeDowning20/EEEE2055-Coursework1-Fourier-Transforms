@@ -1,0 +1,15 @@
+\begin{tikzpicture}[circuit ee IEC, scale=0.6666666667,line width=.5pt]% default: 0.4
+
+\draw [/lt2ti/Net](2.5,-3.0)to[*short,-, color=netcolor] (1.0,-3.0);% wire w3
+\draw [/lt2ti/Net](6.5,-3.0)to[*short,*-, color=netcolor] (5.0,-3.0);% wire w4
+\draw [/lt2ti/Net](8.0,-3.0)to[*short,-*, color=netcolor] (6.5,-3.0);% wire w5
+\draw [/lt2ti/Net](6.5,-4.0)to[*short,-*, color=netcolor] (6.5,-3.0);% wire w6
+  \draw (6.5, -4.0) to[*resistor, l^=R1, a_=1k, -, ] (6.5,-6.5){}; %\node [] at (6.0,-3.5) {x}; % component "res" "R1" 
+  \draw (2.5, -3.0) to[*inductor, l^=L1, a_=100m, - ] (5.0,-3.0){}; % component "ind" "L1" 
+  %\node [] at (2.0,-3.5) {x}; % component "ind" "L1" 
+  \node (Vo) [] at (8.0,-3.0) {};% label mark % label "" "Vo" lbl7 
+  \node (Votxt) [ netlabelcolor, above= -0.24cm of Vo] {{\pgfkeysvalueof{/lt2ti/netlabel/font}Vo}}; % label "" "Vo" lbl7 
+  \node (Vin) [] at (1.0,-3.0) {};% label mark % label "" "Vin" lbl8 
+  \node (Vintxt) [ netlabelcolor, above= -0.24cm of Vin] {{\pgfkeysvalueof{/lt2ti/netlabel/font}Vin}}; % label "" "Vin" lbl8 
+
+\end{tikzpicture}

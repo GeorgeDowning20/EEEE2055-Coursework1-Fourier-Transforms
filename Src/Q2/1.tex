@@ -1,0 +1,77 @@
+% Find the Frequency Response of the circuit in Figure 2 by developing an appropriate differential equation
+% relating Vo to Vi and taking a Fourier Transform. [Report: Derivation of Frequency Response with a short
+% comment explaining each step.]
+
+
+\begin{figure}[ht!]
+\centering
+\input{Project/LTspice/Fig2.asc.tex}
+\caption{Figure 2: LR filter circuit}\label{fig:2}
+\end{figure}\FloatBarrier
+
+Figure \ref{fig:2} Shows the circuit is comprised of two impedances in series, $R1$ and $L1$ in a potential divider configuration.
+
+The equation  relating the impedance of resistor $R1$ to the frequency is derived as shown by eq.~\ref{eq:3}
+
+\begin{equation}
+\begin{split}
+    V &= IR\\
+    Z &= R = \frac{V}{I}\\
+    \therefore Z &= R
+\end{split}\label{eq:3}
+\end{equation}
+
+The equation relating the impedance of inductor $L1$ to the frequency is derived as shown by eq.~\ref{eq:2}
+
+\begin{equation}
+\begin{split}
+    V_{L} &= \frac{di}{dt}L\\
+    Z &= \frac{V_{L}}{I} = \frac{\frac{d}{dt}L}{I} = \frac{d}{dt}L\\
+    \therefore Z &= j\omega L 
+\end{split}
+\label{eq:2}
+\end{equation}
+
+\begin{conditions}
+V & IR\\
+\frac{d}{dt} & j\omega\\
+\end{conditions}
+
+The equation that relates $V_{o}$ to $V_{i}$ with respect to such impedances is given by eq.~\ref{eq:1}
+
+\begin{equation}
+    \begin{split}
+        \frac{V_{o}}{V_{i}} &= \frac{Z_{2}}{Z_{1}+Z_{2}} \\
+        &= \frac{R_{1}}{\frac{d}{dt} L_{1}+R_{1}} \\
+    \end{split}
+\label{eq:1}
+\end{equation}
+
+The fourier frequency response of the circuit is obtained by inserting $j\omega$ in place of $\frac{d}{dt}$ in eq.~\ref{eq:4}
+
+\begin{equation}
+    \begin{split}
+        \widetilde{\mathcal{F}} \left\{\omega\right\} &= \frac{\widetilde{V}_o\left(\omega\right)}{\widetilde{V}_{in}\left(\omega\right)}\\
+          &= \frac{R_{1}}{j\omega L_{1}+R_{1}} \\
+          &= \frac{1k\Omega}{j\omega 100mH+1k\Omega} \\
+          &= \frac{1000}{j\omega 0.1 + 1000} \\
+    \end{split}\label{eq:4}
+\end{equation}
+
+$\widetilde{\mathcal{F}}\left(\omega\right)$ can be writen as a transfer function as shown by eq.~\ref{eq:5}
+
+\begin{equation}
+    H\left(s\right) = \frac{1000}{0.1\left(s\right) + 1000}
+    \label{eq:5}
+\end{equation}
+
+Plotting the transfer function in matlabs bode plot function shows the frequency response of the circuit as shown in figure \ref{fig:3}
+
+\begin{figure}[ht!]
+\centering
+    \input{Project/Matlab/Figures/Q2_2.tex}
+    \input{Project/Matlab/Figures/Q2_1.tex}
+\caption{Figure 3: Frequency Response of the circuit}\label{fig:3}
+\end{figure}\FloatBarrier
+
+

@@ -1,0 +1,1 @@
+cd ../../Tools/lt2circuitikz-master && sudo python3 lt2ti.py ../../Project/LTspice/Fig2.asc

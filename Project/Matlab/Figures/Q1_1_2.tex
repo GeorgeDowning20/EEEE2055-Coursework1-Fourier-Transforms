@@ -1,0 +1,45 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44706,0.74118}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=4.568in,
+height=3.603in,
+at={(0.766in,0.486in)},
+scale only axis,
+xmin=0,
+xmax=0.003,
+xlabel style={font=\color{white!15!black}},
+xlabel={time[s]},
+ymin=-300,
+ymax=1100,
+ylabel style={font=\color{white!15!black}},
+ylabel={[arb]},
+axis background/.style={fill=white},
+axis x line*=bottom,
+axis y line*=left
+]
+\addplot [color=mycolor1, line width=1.1pt, forget plot]
+  table[row sep=crcr]{%
+0	0\\
+0.000999699969952417	0\\
+0.00100090009004816	1000\\
+0.00199969997004246	1000\\
+0.00200090009002452	0\\
+0.00300000000004275	0\\
+};
+\addplot[ycomb, color=mycolor1, line width=1.1pt, mark=triangle, mark options={solid, rotate=180, mycolor1}, forget plot] table[row sep=crcr] {%
+0.002	-200\\
+};
+\addplot[forget plot, color=white!15!black, line width=1.1pt] table[row sep=crcr] {%
+0	0\\
+0.003	0\\
+};
+\end{axis}
+\end{tikzpicture}%

@@ -1,0 +1,85 @@
+% Derive the Fourier Transform of the S2(t) (see Figure 1 [Report: derivation of Fourier Transform including
+% some comments to explain each step]
+\begin{figure}[ht!]
+	\centering
+	\input{Project/Matlab/Figures/Q1_1_1.tex}
+	\caption{$S_{2}(t)$}\label{fig:S2}
+\end{figure}\FloatBarrier
+
+\begin{figure}[ht!]
+	\centering
+	\input{Project/Matlab/Figures/Q1_1_2.tex}
+	\caption{$\frac{dS_{2}\left(t\right)}{dt}$}\label{fig:dS2}
+\end{figure}\FloatBarrier
+
+
+
+Figure \ref{fig:S2} shows the triangular pulse $S_{2}(t)$ and Figure \ref{fig:dS2} shows the derivative of $S_{2}(t)$. where the gradient of the triangle represents a rise of 1 in 1ms.
+
+To calculate the fourier transform of the signal we can split the signal allowing us to differentiate the the different components to create delta functions. The first derivative of $S_{2}(t)$ is shown in \eqref{eq:first_derivative_of_S2}. This signal consists of a rectangular pulse with a width of 1ms and a height of 1000 can be differentiated again to form two unit impulses. Also there is unit impulse at 0.002ms.
+
+The second derivative of $S_{2}(t)$ as a summation of delta functions is shown in \eqref{eq:second_derivative_of_S2}. 
+
+\begin{equation}
+	\begin{split}
+		\frac{d^{2}S_{2}\left(t\right)}{dt^{2}} &= \frac{d}{dt}\left[\frac{dS_{2}\left(t\right)}{dt}\right]\\
+		&= \left(\frac{1}{m}\delta\left(t - m\right) - \frac{1}{m}\delta\left(t - 2m\right)\right) + \frac{d}{dt}\left[\delta\left(t - 2m\right)\right]\\
+		&= 1000\delta\left(t - 0.001\right) - 1000\delta\left(t - 0.002\right) + \frac{d}{dt}\left[\delta\left(t - 0.002\right)\right]
+	\end{split}
+	\label{eq:second_derivative_of_S2}
+\end{equation}
+
+In order to calculate the fourier transform of the Signal $S_{2}(t)$ we can use the derivative theorem. The derivative theorem states that the fourier transform of the derivative of a signal is the fourier transform of the signal divided by the frequency. Application of derivative theorem is shown in \eqref{eq:derivative_theorem}. Where the first line is the derivative theorem and the second line is the application of the derivative theorem to the second derivative of $S_{2}(t)$.
+
+\begin{equation}
+	\begin{split}
+		\left(j\omega\right)^{2} \mathcal{F}\left\{S\left(t\right)\right\} =& \mathcal{F}\left\{\frac{d^{2}S_{2}\left(t\right)}{dt^{2}}\right\}\\
+		\therefore \widetilde{S} \left\{\omega\right\} =& \frac{1}{\left(j\omega\right)^{2}} \cdot \mathcal{F}\left\{1000\delta\left(t - 0.001\right) - 1000\delta\left(t - 0.002\right)\right\}\\
+		&+ \frac{1}{\left(j\omega\right)} \cdot \mathcal{F}\delta\left(t - 0.002\right)\\
+	\end{split}
+	\label{eq:derivative_theorem}
+\end{equation}
+
+The Fourier transform is evaluated using integration as shown in \eqref{eq:fourier_transform_of_S2}. 
+
+\begin{equation}
+	\begin{split}
+		\widetilde{S} \left\{\omega\right\}
+		=& \frac{1000}{\left(j\omega\right)^{2}} \cdot \int_{-\infty}^{\infty}\delta\left(t - 0.001\right)e^{-j\omega t}dt\\
+		&  + \frac{-1000}{\left(j\omega\right)^{2}}\cdot  \int_{-\infty}^{\infty}\delta\left(t - 0.002\right)e^{-j\omega t}dt\\
+		&  + \frac{-1}{j\omega} \cdot \int_{-\infty}^{\infty}\delta\left(t - 0.002\right)e^{-j\omega t}dt\\
+	\end{split}
+	\label{eq:fourier_transform_of_S2}
+\end{equation}
+
+The equation given in \eqref{eq:fourier_transform_of_S2} is then evaluated, using the properties of the delta function, to give the following equation \eqref{eq:fourier_transform_of_S2_evaluated}. 
+
+\begin{equation}
+	\begin{split}
+		\widetilde{S} \left\{\omega\right\} =& \frac{-1000} {\omega^2} \cdot e^{-j\omega 0.001}\\
+		& + \frac{1000} {\omega^2}  \cdot e^{-j\omega 0.002m}\\
+		& + \frac{-1} {j\omega}  \cdot e^{-j\omega 0.002m}\\
+		=& \frac{1}{\left(j \omega\right)^{2} m}\left[e^{-j\omega 0.001m} - e^{-j\omega 0.002m}\right] - \frac{1}{\left(j \omega\right)}\left[e^{-j\omega 0.001m} - e^{-j\omega 0.002m}\right]\\
+		\label{eq:fourier_transform_of_S2_evaluated}
+	\end{split}
+\end{equation}
+
+The equation given in \eqref{eq:fourier_transform_of_S2_evaluated} is then simplified to give the following equation \eqref{eq:fourier_transform_of_S2_simplified}.
+
+\begin{equation}
+	\widetilde{S} \left\{\omega\right\} = \frac{je^{-\frac{j\omega}{500}}}{\omega}+\frac{1000e^{-\frac{j\omega}{500}}-1000e^{-\frac{j\omega}{1000}}}{\omega^2}\label{eq:fourier_transform_of_S2_simplified}
+\end{equation}
+
+Converting the equation into polar form to avoid imaginary exponentials gives the following equation \eqref{eq:fourier_transform_of_S2_polar}.
+
+\begin{equation}
+		\widetilde{S} \left\{\omega\right\} = \frac{t\sin \left(\frac\omega{500}\right)-2000\sin \left(\frac\omega{2000}\right)\sin \left(\frac{3t}{2000}\right)}{t^2}+j\frac{t\cos \left(\frac\omega{500}\right)-2000\sin \left(\frac\omega{2000}\right)\cos \left(\frac\omega{2000}-\frac\omega{500}\right)}{t^2}
+	\label{eq:fourier_transform_of_S2_polar}
+\end{equation}
+
+\begin{figure}[ht!]
+	\centering
+	\input{Project/Matlab/Figures/Q1_1_3.tex}
+	\caption{$S_2\left(f\right)$}\label{fig:s2f} 
+\end{figure}\FloatBarrier 
+

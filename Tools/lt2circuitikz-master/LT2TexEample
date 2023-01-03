@@ -1,0 +1,5 @@
+cd ../tools/lt2circuitikz-master && sudo python3 lt2ti.py ../../LTSpice/test1.asc \
+&& sudo python3 lt2ti.py ../../LTSpice/test4.asc \
+&& sudo python3 lt2ti.py ../../LTSpice/test3.asc \
+&& sudo python3 lt2ti.py ../../LTSpice/test5.asc \
+&& sudo python3 lt2ti.py ../../LTSpice/test6.asc \

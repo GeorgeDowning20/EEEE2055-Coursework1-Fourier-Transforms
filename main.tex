@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+\input{Config/inlcude.tex}
+\input{Tools/lt2circuitikz-master/latex_ext.tex}
+\input{Config/Conf.tex}
+\input{Config/macros.tex}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                    % Title Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Config/title_page.tex}
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                    % Table of Contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\pagebreak
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                            % Fourier Transform of a Signal
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Fourier Transform of a Signal}\label{sec:fourier_transform_of_a_signal}
+
+\subsection{Fourier Transform derivation}\label{subsec:fourier_transform_derivation}
+\input{Src/Q1/1.tex}
+
+\subsection{How can an FFT differ from theory}\label{subsec:fourier_transform_of_a_square_wave}
+\input{Src/Q1/2.tex}
+
+\subsection{Exploring effect of falling edge approximation}\label{subsec:exploring_effect_of_falling_edge_approximation}
+\input{Src/Q1/3.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                      % Impulse and Frequency Response of a Circuit
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Impulse and Frequency Response of a Circuit}\label{sec:impulse_and_frequency_response_of_a_circuit}
+
+\subsection{Computing the Frequency Response}\label{subsec:computing_the_frequency_response}
+\input{Src/Q2/1.tex}
+
+\subsection{Computing the Impulse Response}\label{subsec:computing_the_impulse_response}
+\input{Src/Q2/2.tex}
+
+\subsection{Approximating the Impulse Response using LTSpice}\label{subsec:approximating_the_impulse_response_using_ltspice}
+\input{Src/Q2/3.tex}
+
+\subsection{Checking the Frequency Response using LTSpice}\label{subsec:checking_the_frequency_response_using_ltspice}
+\input{Src/Q2/4.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                     % Modelling the filter output using convolution
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Modelling the filter output using convolution}\label{sec:modelling_the_filter_output_using_convolution}
+
+\subsection{Deriving the filter output waveform using convolution}\label{subsec:deriving_the_filter_output_waveform_using_convolution}
+\input{Src/Q3/1.tex}
+
+\subsection{Comparing the convolution answer to LTSpice}\label{subsec:comparing_the_convolution_answer_to_ltspice}
+\input{Src/Q3/2.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                    % References
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{IEEEtranN}
+\bibliography{biblist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                    % Appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+% \appendix
+% \section*{Appendices}\addcontentsline{toc}{section}{Appendices}\label{appendix:main}
+% \renewcommand{\thesubsection}{\Alph{subsection}}
+
+% \subsection{Matlab Code}
+
+% \subsection{LTSpice Code}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+
